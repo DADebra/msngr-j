@@ -36,7 +36,7 @@ public class PostDBTest {
     @Test
     public void testAddNull() {
         assertEquals(db.getAllPosts(), "timeStamp\ttext\n");
-        assertFalse(db.addPost(null));
+        assertThrows(NullPointerException.class, () -> db.addPost(null));
         assertEquals(db.getAllPosts(), "timeStamp\ttext\n");
     }
 
