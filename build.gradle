@@ -19,12 +19,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.session:spring-session-core'
     implementation 'com.h2database:h2'
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
-    compile 'com.jcraft:jsch:0.1.54'
+    implementation 'com.jcraft:jsch:0.1.54'
 
 }
 
