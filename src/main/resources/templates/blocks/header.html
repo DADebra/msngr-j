@@ -9,6 +9,8 @@
             <th:block th:if="${!isLoggedIn}">
                 You aren't logged in. Log in
                 <a href="/login">here</a>.
+                Use a local database instead
+                <a href="/login_local">here</a>.
             </th:block>
             <th:block th:if="${isLoggedIn}">
                 You are currently logged in.

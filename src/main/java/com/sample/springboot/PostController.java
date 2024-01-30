@@ -2,6 +2,7 @@ package com.sample.springboot;
 
 import com.sample.utils.LoggerPost;
 import com.sample.utils.LoginInfo;
+import com.sample.utils.PostDB;
 
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletRequest;
@@ -62,7 +63,7 @@ public class PostController {
         if (login.jumpHost == "") {
             login.jumpHost = null; login.jumpUser = null; login.jumpPass = null;
         }
-        pl.Login(login);
+        pl.Login(login, PostDB.MARIADB_DRIVER);
         model.addAttribute("isLoggedIn", pl.GetLoggedIn());
         if (!pl.GetLoggedIn())
             model.addAttribute("loginFailed", true);
@@ -70,6 +71,15 @@ public class PostController {
             return "index";
 
         return "login";
+    }
+
+    @RequestMapping(value = "/login_local")
+    public String LoginLocal(Model model, HttpSession sesh, HttpServletRequest req) {
+      LoggerPost pl = getLogger(sesh);
+      LoginInfo login = new LoginInfo("", "", "", "", null, null, null);
+      pl.Login(login, PostDB.H2_DRIVER);
+      model.addAttribute("isLoggedIn", pl.GetLoggedIn());
+      return "index";
     }
 
     @RequestMapping(value = "/logout")
