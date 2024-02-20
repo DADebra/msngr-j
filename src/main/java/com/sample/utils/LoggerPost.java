@@ -20,8 +20,8 @@ public class LoggerPost {
         }
     }
 
-    public void Login(LoginInfo login) {
-        db.Login(login);
+    public void Login(LoginInfo login, String driver) {
+        db.Login(login, driver);
     }
 
     public void Logout() {

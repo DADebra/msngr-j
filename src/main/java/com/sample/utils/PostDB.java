@@ -22,12 +22,6 @@ public class PostDB {
         this.known_hosts_path = known_hosts_path;
     }
 
-    public void Login(LoginInfo login) {
-        this.login = login;
-        this.dbDriver = MARIADB_DRIVER;
-        connect();
-    }
-
     public void Login(LoginInfo login, String driver) {
         this.login = login;
         this.dbDriver = driver;
